@@ -15,6 +15,13 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (Values.counter % 2 == 0) {
+            setTheme(R.style.l_my_style1);
+        } else {
+            setTheme(R.style.l_my_style2);
+        }
+
         setContentView(R.layout.activity_second);
 
         btn_ok = (Button) findViewById(R.id.btn_ok);

@@ -18,17 +18,16 @@ public class MainActivity extends AppCompatActivity {
     Switch swtch_theme;
     int start_as_tag;
 
-    public void setFirstTheme() {
-        setTheme(R.style.l_my_style1);
-    }
-
-    public void setSecondTheme() {
-        setTheme(R.style.l_my_style2);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (Values.counter % 2 == 0) {
+            setTheme(R.style.l_my_style1);
+        } else {
+            setTheme(R.style.l_my_style2);
+        }
+
         setContentView(R.layout.activity_main);
 
         tv_firstField = (TextView) findViewById(R.id.tv_first_field);
@@ -38,46 +37,35 @@ public class MainActivity extends AppCompatActivity {
         btn_calculate = (Button) findViewById(R.id.btn_calculate);
         swtch_theme = (Switch) findViewById(R.id.swtch_theme);
 
+        if (Values.counter % 2 == 1) {
+            swtch_theme.setChecked(true);
+        }
+
         tv_firstField.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setFirstTheme();
-                setContentView(R.layout.activity_main);
-                /*start_as_tag = 1;
+                start_as_tag = 1;
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                startActivityForResult(intent, 0);*/
+                startActivityForResult(intent, 0);
             }
         });
 
         tv_secondField.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setSecondTheme();
-                setContentView(R.layout.activity_main);
-                /*start_as_tag = 2;
+                start_as_tag = 2;
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                startActivityForResult(intent, 0);*/
+                startActivityForResult(intent, 0);
             }
         });
 
         swtch_theme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Values.counter++;
-
-                if (Values.counter > 3) {
-                    Toast.makeText(MainActivity.this, "asdasd", Toast.LENGTH_LONG).show();
-                }*/
-
-                /// TODO
-
-                if (swtch_theme.isPressed()) {
-                    setFirstTheme();
-                } else {
-                    setSecondTheme();
-                }
-
-                setContentView(R.layout.activity_main);
+                Values.counter++;
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
