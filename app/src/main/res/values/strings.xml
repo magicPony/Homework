@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Homework</string>
+    <string name="empty_field_message">Number fields shouldn\'t be empty</string>
+    <string name="incorrect_action_field_message">Incorrect action field</string>
+    <string name="dividing_on_zero_message">You can\'t divide by zero</string>
+    <string name="tv_first_field_hint">A</string>
+    <string name="et_action_text">+</string>
+    <string name="tv_second_field_hint">B</string>
+    <string name="btn_calculate_text">Calculate</string>
+    <string name="tv_result_text">Result</string>
+    <string name="et_as_field_hint">Input value</string>
+    <string name="btn_ok_text">OK</string>
+</resources>
