@@ -37,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
         btn_calculate = (Button) findViewById(R.id.btn_calculate);
         swtch_theme = (Switch) findViewById(R.id.swtch_theme);
 
+        tv_firstField.setText(Values.firstField);
+        tv_secondField.setText(Values.secondField);
+        tv_result.setText(Values.resultField);
+
         if (Values.counter % 2 == 1) {
             swtch_theme.setChecked(true);
         }
@@ -106,7 +110,8 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 result = action == '+' ? a + b : action == '-' ? a - b : action == '*' ? a * b : a / b;
-                tv_result.setText(Integer.toString(result));
+                Values.resultField = Integer.toString(result);
+                tv_result.setText(Values.resultField);
             }
         });
     }
@@ -117,8 +122,10 @@ public class MainActivity extends AppCompatActivity {
         String s = data.getStringExtra("field");
 
         if (start_as_tag == 1) {
+            Values.firstField = s;
             tv_firstField.setText(s);
         } else {
+            Values.secondField = s;
             tv_secondField.setText(s);
         }
     }

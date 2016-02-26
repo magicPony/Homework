@@ -5,4 +5,5 @@ package com.example.taras.homework;
  */
 public class Values {
     public static int counter;
+    public static String firstField = "A", secondField = "B", resultField = "Result";
 }
